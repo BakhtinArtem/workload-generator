@@ -1,3 +1,18 @@
+# Design Patterns NPRG024
+
+The Strategy pattern is used to manage different request modes. In the "one-shot" mode, 
+a single request is sent, while the "throughput" mode sends n parallel requests. 
+The main entry point for the algorithm is the `execute` method in the `Executor` class. 
+Inside that method another `execute` method is called from common `IGeneratorMode` interface in order to send request(s). 
+The `execute` method from `Executor` class gets as an argument a particular implementation of `IGeneratorMode`
+interface.
+
+Unlike the classic version of the Strategy pattern, this implementation does not save the strategy or include 
+a method to change the strategy within the class. This is because the current version of the application only 
+supports single-time execution. In the future, if the application evolves to handle multiple jobs for sending 
+requests, saving and switching strategies will become useful. However, these changes are minor and can be easily 
+integrated when needed.
+
 # Overview
 
 This program is a workload generator designed to simulate HTTP requests to a specified URL. 
