@@ -1,2 +1,0 @@
-# workload-generator
-Workload generator
